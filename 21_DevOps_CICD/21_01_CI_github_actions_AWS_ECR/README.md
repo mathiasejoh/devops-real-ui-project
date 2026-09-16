@@ -77,26 +77,6 @@ aws ecr create-repository \
   --repository-name retail-store/ui \
   --region us-west-2
 
-manyejoh@ManyEjohs-MacBook-Air devops-project-on-aws % aws ecr create-repository \
-  --repository-name retail-store/ui \
-  --region us-west-2
-{
-    "repository": {
-        "repositoryArn": "arn:aws:ecr:us-west-2:475041569548:repository/retail-store/ui",
-        "registryId": "475041569548",
-        "repositoryName": "retail-store/ui",
-        "repositoryUri": "475041569548.dkr.ecr.us-west-2.amazonaws.com/retail-store/ui",
-        "createdAt": "2026-09-16T13:03:50.194000-04:00",
-        "imageTagMutability": "MUTABLE",
-        "imageScanningConfiguration": {
-            "scanOnPush": false
-        },
-        "encryptionConfiguration": {
-            "encryptionType": "AES256"
-        }
-    }
-}
-
 
 **Note:** Save the `repositoryUri` - you'll need it later!
 
@@ -107,9 +87,9 @@ manyejoh@ManyEjohs-MacBook-Air devops-project-on-aws % aws ecr create-repository
 ### Step-02-01: Set Environment Variables
 ```bash
 # Set your configuration
-AWS_REGION="us-east-1"
+AWS_REGION="us-west-2"
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-GITHUB_REPO="stacksimplify/aws-devops-github-actions-ecr-argocd3"  # UPDATE with YOUR repo
+GITHUB_REPO="mathiasejoh/aws-devops-github-actions-ecr-argocd3"  # UPDATE with YOUR repo
 ROLE_NAME="github-actions-oidc-role-ui3"
 
 # Verify variables are set correctly
@@ -159,6 +139,7 @@ cat trust-policy.json
 ```bash
 # Verify the trust policy before creating role
 cat trust-policy.json | jq '.'
+
 
 # Create the IAM role
 aws iam create-role \
@@ -212,6 +193,14 @@ aws iam create-open-id-connect-provider \
 # List OIDC Providers
 aws iam list-open-id-connect-providers
 ```
+ws iam list-open-id-connect-providers   
+{
+    "OpenIDConnectProviderList": [
+        {
+            "Arn": "arn:aws:iam::475041569548:oidc-provider/token.actions.githubusercontent.com"
+        }
+    ]
+}
 
 ---
 
