@@ -75,17 +75,28 @@ Developer Pushes Code to src/ui/src/**
 # Create ECR repository for UI microservice
 aws ecr create-repository \
   --repository-name retail-store/ui \
-  --region us-east-1
+  --region us-west-2
 
-# Expected output:
-# {
-#     "repository": {
-#         "repositoryArn": "arn:aws:ecr:us-east-1:123456789012:repository/retail-store/ui",
-#         "repositoryName": "retail-store/ui",
-#         "repositoryUri": "123456789012.dkr.ecr.us-east-1.amazonaws.com/retail-store/ui"
-#     }
-# }
-```
+manyejoh@ManyEjohs-MacBook-Air devops-project-on-aws % aws ecr create-repository \
+  --repository-name retail-store/ui \
+  --region us-west-2
+{
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:us-west-2:475041569548:repository/retail-store/ui",
+        "registryId": "475041569548",
+        "repositoryName": "retail-store/ui",
+        "repositoryUri": "475041569548.dkr.ecr.us-west-2.amazonaws.com/retail-store/ui",
+        "createdAt": "2026-09-16T13:03:50.194000-04:00",
+        "imageTagMutability": "MUTABLE",
+        "imageScanningConfiguration": {
+            "scanOnPush": false
+        },
+        "encryptionConfiguration": {
+            "encryptionType": "AES256"
+        }
+    }
+}
+
 
 **Note:** Save the `repositoryUri` - you'll need it later!
 
