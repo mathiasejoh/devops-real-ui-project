@@ -1,4 +1,4 @@
-aws_region = "us-east-1"
+aws_region = "us-west-2"
 environment_name = "prod"
 cluster_name = "eksdemo1"
 cluster_service_ipv4_cidr = "172.22.0.0/16"

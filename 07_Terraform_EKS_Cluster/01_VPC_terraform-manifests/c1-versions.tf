@@ -8,9 +8,9 @@ terraform {
   }
 # Remote Backend
   backend "s3" {
-    bucket         = "tfstate-dev-us-east-1-jpjtof"
+    bucket         = "devopsdemo-5erbjm"
     key            = "vpc/dev/terraform.tfstate"
-    region         = "us-east-1"
+    region         = "us-west-2"
     encrypt        = true
     use_lockfile = true
   }   

@@ -1,4 +1,4 @@
-aws_region         = "us-east-1"
+aws_region         = "us-west-2"
 environment_name   = "dev"
 business_division  = "retail"
 
